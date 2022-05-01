@@ -23,7 +23,6 @@ export class ProjectCoverage {
         `${(fc.linesHit / fc.linesFound * 100).toFixed(2)}%`,
         fc.missingCoverage,
       );
-      this.fileCoverages.add(fc);
     }
     return this;
   }
