@@ -14,7 +14,7 @@ Unfortunately, I find this report hard to read, so we've made a new one.
 First, you will need to install the script with
 
 ```
-deno install -A --no-check -n code-coverage https://deno.land/x/code-coverage/cli.ts
+deno install -A --no-check -n code-coverage https://deno.land/x/code_coverage/cli.ts
 ```
 
 From there in any project you should be able to run
