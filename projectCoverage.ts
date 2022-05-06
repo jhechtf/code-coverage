@@ -7,6 +7,7 @@ export class ProjectCoverage {
 
   fileCoverages = new Set<FileCoverage>();
   #table = new AsciiTable();
+  #totalHasBeenAdded = false;
 
   constructor(public name: string = basename(resolve('.'))) {
     this.#table.setHeading('File Path', 'Coverage', 'Lines Without Coverage');
@@ -28,6 +29,10 @@ export class ProjectCoverage {
   }
 
   printTable() {
+    if(!this.#totalHasBeenAdded) {
+      this.#totalHasBeenAdded = true;
+      this.#table.addRow('Totals:', `${(this.linesHit / this.linesFound * 100).toFixed(2)}%`)
+    }
     console.log(this.#table.toString());
   }
 }
