@@ -17,9 +17,10 @@ First, you will need to install the script with
 deno install -A --no-check -n code-coverage https://deno.land/x/code_coverage/cli.ts
 ```
 
-From there in any project you should be able to run
+From there in any project you should be able to add in the `code-coverage` command to output code coverage.
 
 ```
+deno test  --coverage=coverage && deno coverage --lcov --output=lcov.info coverage
 code-coverage
 ```
 
@@ -28,4 +29,14 @@ You can change the file name with
 
 ```
 code-coverage --file coverage.lcov
+```
+
+If using over Deno version 1.20 or higher, you can use this in a [deno task](https://deno.land/manual@v1.20.1/tools/task_runner)
+
+```json
+{
+  "tasks": {
+    "test-coverage": "deno test --coverage=coverage && deno coverage --lcov --output=lcov.info coverage && code-coverage"
+  }
+}
 ```
