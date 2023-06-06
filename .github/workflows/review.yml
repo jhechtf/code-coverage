@@ -4,6 +4,7 @@ on:
     types:
       - review_requested
       - ready_for_review
+      - unassigned
 
 jobs:
   test-coverage:
