@@ -1,0 +1,22 @@
+on:
+  pull_request:
+    branches: ["mainline"]
+
+jobs:
+  test-coverage:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+      - run: deno task coverage
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+      - run: deno fmt --check
+    
+    
