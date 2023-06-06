@@ -13,18 +13,20 @@ Unfortunately, I find this report hard to read, so we've made a new one.
 
 ### Preferred Usage
 
-If you are running `deno >=1.20` (and you _should_ be), the best way to do this is
+If you are running `deno >=1.20` (and you _should_ be), the best way to do this
+is
 
 ```jsonc
 {
   // deno.json file in project
 
   // Basic test coverage for your project
-  "test": "deno test", 
+  "test": "deno test",
   // Coverage report (mostly useful for CIs)
   "coverage": "deno test --coverage=.coverage && deno coverage --exclude=fixtures --exclude=test --lcov --output=lcov.info .coverage && deno run --allow-read https://deno.land/x/code_coverage@0.2.1/cli.ts"
 }
 ```
+
 ### Legacy Usage (not preferred)
 
 First, you will need to install the script with
@@ -33,7 +35,8 @@ First, you will need to install the script with
 deno install -A --no-check -n code-coverage https://deno.land/x/code_coverage/cli.ts
 ```
 
-From there in any project you should be able to add in the `code-coverage` command to output code coverage.
+From there in any project you should be able to add in the `code-coverage`
+command to output code coverage.
 
 ```
 deno test  --coverage=coverage && deno coverage --lcov --output=lcov.info coverage

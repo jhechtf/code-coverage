@@ -29,9 +29,12 @@ export class ProjectCoverage {
   }
 
   printTable() {
-    if(!this.#totalHasBeenAdded) {
+    if (!this.#totalHasBeenAdded) {
       this.#totalHasBeenAdded = true;
-      this.#table.addRow('Totals:', `${(this.linesHit / this.linesFound * 100).toFixed(2)}%`)
+      this.#table.addRow(
+        'Totals:',
+        `${(this.linesHit / this.linesFound * 100).toFixed(2)}%`,
+      );
     }
     console.log(this.#table.toString());
   }

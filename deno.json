@@ -1,7 +1,11 @@
 {
   "fmt": {
     "options": {
-      "singleQuote": true
+      "singleQuote": true,
+      "proseWrap": "preserve"
+    },
+    "files": {
+      "exclude": ["CHANGELOG.md"]
     }
   },
   "tasks": {
