@@ -2,11 +2,14 @@ name: Version Bump
 on:
   push:
     branches: ["mainline"]
+permissions:
+  contents: write
 
 jobs:
   bump:
     name: Bump and Push
     runs-on: ubuntu-latest
+    if: ${{ github.event.payload.ref == "refs/head/mainline" }}
     steps:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
