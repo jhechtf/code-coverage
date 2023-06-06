@@ -11,6 +11,22 @@ Unfortunately, I find this report hard to read, so we've made a new one.
 
 ## Usage
 
+### Preferred Usage
+
+If you are running `deno >=1.20` (and you _should_ be), the best way to do this is
+
+```jsonc
+{
+  // deno.json file in project
+
+  // Basic test coverage for your project
+  "test": "deno test", 
+  // Coverage report (mostly useful for CIs)
+  "coverage": "deno test --coverage=.coverage && deno coverage --exclude=fixtures --exclude=test --lcov --output=lcov.info .coverage && deno run --allow-read https://deno.land/x/code_coverage@0.2.1/cli.ts"
+}
+```
+### Legacy Usage (not preferred)
+
 First, you will need to install the script with
 
 ```
@@ -29,14 +45,4 @@ You can change the file name with
 
 ```
 code-coverage --file coverage.lcov
-```
-
-If using over Deno version 1.20 or higher, you can use this in a [deno task](https://deno.land/manual@v1.20.1/tools/task_runner)
-
-```json
-{
-  "tasks": {
-    "test-coverage": "deno test --coverage=coverage && deno coverage --lcov --output=lcov.info coverage && code-coverage"
-  }
-}
 ```
