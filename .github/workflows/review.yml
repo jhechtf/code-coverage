@@ -1,3 +1,4 @@
+name: Review tests and checks
 on:
   pull_request:
     branches: ["mainline"]
@@ -9,7 +10,7 @@ jobs:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
       - run: deno task coverage
   format:
