@@ -1,3 +1,4 @@
+name: Review tests and checks
 on:
   pull_request:
     branches: ["mainline"]
