@@ -9,7 +9,7 @@ jobs:
   bump:
     name: Bump and Push
     runs-on: ubuntu-latest
-    if: ${{ github.event.payload.ref == 'refs/head/mainline' }}
+    if: ${{ !startsWith(github.event.payload.ref, 'refs/tags' }}
     steps:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
