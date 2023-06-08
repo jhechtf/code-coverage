@@ -23,4 +23,4 @@ export {
   yellow,
 } from 'https://deno.land/std@0.136.0/fmt/colors.ts';
 
-export const VERSION = '0.2.1';
+export const VERSION = '0.2.2';
