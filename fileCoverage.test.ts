@@ -1,5 +1,5 @@
 import { FileCoverage } from './fileCoverage.ts';
-import { assertEquals } from './deps.ts';
+import { assertEquals } from './dev_deps.ts';
 
 Deno.test('Base Test', async (t) => {
   // Check the base

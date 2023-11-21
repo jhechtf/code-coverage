@@ -1,5 +1,5 @@
 import { Range } from './range.ts';
-import { assertEquals } from './deps.ts';
+import { assertEquals } from './dev_deps.ts';
 
 Deno.test('Default Range', () => {
   const baseRange = new Range();
