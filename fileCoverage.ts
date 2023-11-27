@@ -5,15 +5,18 @@ export class FileCoverage {
   linesFound = 0;
   linesHit = 0;
 
-  untouchedLines: number[] = [];
+  get untouchedLines(): number[] {
+    return Array
+      .from(this.lines.entries())
+      .filter((v) => v[1] === 0)
+      .map((v) => v[0]);
+  }
 
   constructor(public readonly name: string) {}
 
   addLines(lineNumber: number, hitCount: number): typeof this {
-    let currentHitCount = this.lines.get(lineNumber);
-    if (!currentHitCount) currentHitCount = 0;
+    const currentHitCount = this.lines.get(lineNumber) ?? 0;
     this.lines.set(lineNumber, currentHitCount + hitCount);
-    if (hitCount === 0) this.untouchedLines.push(lineNumber);
     return this;
   }
 
@@ -28,24 +31,28 @@ export class FileCoverage {
   }
 
   get missingCoverage(): string {
-    const contig: Range[] = [
+    const ranges: Range[] = [
       new Range(),
     ];
 
-    for (let i = 0; i < this.untouchedLines.length; i++) {
-      const recent = contig.at(-1) as Range;
-      if (recent.from === -Infinity) {
-        recent.from = recent.to = this.untouchedLines[i];
-      } else if (this.untouchedLines[i] === recent.to + 1) {
-        recent.to = this.untouchedLines[i];
+    const orderedLines = Array
+      .from(this.lines.entries())
+      .sort((a, b) => a[0] - b[0]);
+
+    for (let i = 0; i < orderedLines.length; i++) {
+      const recent = ranges.at(-1) as Range;
+      if (orderedLines[i][1] === 0 && recent.from === -Infinity) {
+        recent.from = recent.to = orderedLines[i][0];
+      } else if (orderedLines[i][1] === 0 && orderedLines[i - 1][1] > 0) {
+        ranges.push(new Range(orderedLines[i][0], orderedLines[i][0]));
+      } else if (orderedLines[i][1] === 0) { // && orderedLines[i-1][1] === 0
+        recent.to = orderedLines[i][0];
       } else {
-        contig.push(
-          new Range(this.untouchedLines[i], this.untouchedLines[i]),
-        );
+        // orderedLines[i][1] > 0
       }
     }
 
-    return contig.map((v) => v.toString()).join(',');
+    return ranges.map((v) => v.toString()).join(',');
   }
 
   parseRawLine(line: string): typeof this {

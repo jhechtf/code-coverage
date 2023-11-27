@@ -62,7 +62,7 @@ Deno.test('Parse lines check', async (t) => {
     fc.addLines(22, 0)
       .addLines(23, 0)
       .addLines(24, 0);
-    assertEquals(fc.missingCoverage, '10-11,14,22-24');
+    assertEquals(fc.missingCoverage, '10-11,14-24');
   });
 
   await t.step('Setting Lines Found/Hit', () => {
