@@ -11,6 +11,7 @@ Unfortunately, I find this report hard to read, so we've made a new one.
 
 ## Example report
 
+```
 .-----------------------------------------------------.
 |    File Path    | Coverage | Lines Without Coverage |
 |-----------------|----------|------------------------|
@@ -20,6 +21,7 @@ Unfortunately, I find this report hard to read, so we've made a new one.
 | range.ts        | 100.00%  | n/a                    |
 | Totals:         | 100.00%  |                        |
 '-----------------------------------------------------'
+```
 
 ## Usage
 
