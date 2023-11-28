@@ -3,7 +3,6 @@ export { assertEquals } from 'https://deno.land/std@0.208.0/assert/assert_equals
 export { parseArgs } from 'https://deno.land/std@0.208.0/cli/parse_args.ts';
 
 export { basename } from 'https://deno.land/std@0.208.0/path/basename.ts';
-export { dirname } from 'https://deno.land/std@0.208.0/path/dirname.ts';
 export { relative } from 'https://deno.land/std@0.208.0/path/relative.ts';
 export { resolve } from 'https://deno.land/std@0.208.0/path/resolve.ts';
 
