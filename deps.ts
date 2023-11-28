@@ -1,26 +1,13 @@
-export { assertEquals } from 'https://deno.land/std@0.136.0/testing/asserts.ts';
+export { assertEquals } from 'https://deno.land/std@0.208.0/assert/assert_equals.ts';
 
-export { type Args, parse } from 'https://deno.land/std@0.136.0/flags/mod.ts';
+export { parseArgs } from 'https://deno.land/std@0.208.0/cli/parse_args.ts';
 
-export {
-  basename,
-  dirname,
-  relative,
-  resolve,
-} from 'https://deno.land/std@0.136.0/path/mod.ts';
+export { basename } from 'https://deno.land/std@0.208.0/path/basename.ts';
+export { relative } from 'https://deno.land/std@0.208.0/path/relative.ts';
+export { resolve } from 'https://deno.land/std@0.208.0/path/resolve.ts';
 
-export { readLines } from 'https://deno.land/std@0.136.0/io/mod.ts';
+export { TextLineStream } from 'https://deno.land/std@0.208.0/streams/text_line_stream.ts';
 
-export {
-  AsciiAlign,
-  type AsciiData,
-  default as AsciiTable,
-} from 'https://deno.land/x/ascii_table@v0.1.0/mod.ts';
-
-export {
-  green,
-  red,
-  yellow,
-} from 'https://deno.land/std@0.136.0/fmt/colors.ts';
+export { default as AsciiTable } from 'https://deno.land/x/ascii_table@v0.1.0/mod.ts';
 
 export const VERSION = '0.2.2';

@@ -1,5 +1,4 @@
 import { something } from './mod.ts';
-
 import { assertEquals } from './deps.ts';
 
 Deno.test('Hello', () => {
