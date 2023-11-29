@@ -1,3 +1,3 @@
-import { parse } from './deps.ts';
+import { parseArgs } from './deps.ts';
 
-export default parse(Deno.args);
+export default parseArgs(Deno.args);

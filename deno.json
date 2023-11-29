@@ -1,15 +1,11 @@
 {
   "fmt": {
-    "options": {
-      "singleQuote": true,
-      "proseWrap": "preserve"
-    },
-    "files": {
-      "exclude": ["CHANGELOG.md"]
-    }
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "exclude": ["CHANGELOG.md"]
   },
   "tasks": {
-    "coverage": "deno test -A  --coverage=coverage && deno coverage --lcov --output=lcov.info coverage && deno run -A cli.ts",
+    "coverage": "rm -rf coverage && deno test -A  --coverage=coverage && deno coverage --lcov --output=lcov.info coverage && deno run -A cli.ts",
     "version-bump": "deno run -A https://deno.land/x/version_bump@1.1.0/cli.ts"
   }
 }

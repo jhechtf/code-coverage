@@ -9,6 +9,20 @@ directly from tests. However, this data is not very human readable. _But wait!_
 they have a built-in tool (`deno coverage`) that will generate a report.
 Unfortunately, I find this report hard to read, so we've made a new one.
 
+## Example report
+
+```
+.-----------------------------------------------------.
+|    File Path    | Coverage | Lines Without Coverage |
+|-----------------|----------|------------------------|
+| dev_deps.ts     | 100.00%  | n/a                    |
+| fileCoverage.ts | 100.00%  | n/a                    |
+| mod.ts          | 100.00%  | n/a                    |
+| range.ts        | 100.00%  | n/a                    |
+| Totals:         | 100.00%  |                        |
+'-----------------------------------------------------'
+```
+
 ## Usage
 
 ### Preferred Usage
