@@ -7,9 +7,7 @@ const {
 } = args;
 
 const file = await Deno.open(resolve(fileName));
-const lineStream = file.readable.pipeThrough(new TextDecoderStream())
-  .pipeThrough(new TextLineStream());
 
-const projectCoverage = await processLcovFile(file);
+const projectCoverage = await processLcovFile(file.readable);
 
 projectCoverage.printTable();

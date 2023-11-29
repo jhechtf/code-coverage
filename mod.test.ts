@@ -1,6 +1,5 @@
 import { assertEquals } from './deps.ts';
 import { processLcovFile } from './mod.ts';
-import { readerFromStreamReader } from 'https://deno.land/std@0.207.0/streams/reader_from_stream_reader.ts';
 
 Deno.test('process a simple file', async () => {
   const stream = ReadableStream.from([
@@ -14,7 +13,6 @@ Deno.test('process a simple file', async () => {
     'LF:1\n',
     'end_of_record\n',
   ]).pipeThrough(new TextEncoderStream());
-  const reader = readerFromStreamReader(stream.getReader());
-  const projectCoverage = await processLcovFile(reader)
+  const projectCoverage = await processLcovFile(stream);
   assertEquals(projectCoverage.linesFound, 1);
 });
