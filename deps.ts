@@ -10,4 +10,4 @@ export { TextLineStream } from 'https://deno.land/std@0.208.0/streams/text_line_
 
 export { default as AsciiTable } from 'https://deno.land/x/ascii_table@v0.1.0/mod.ts';
 
-export const VERSION = '0.3.0';
+export const VERSION = '0.3.1';
