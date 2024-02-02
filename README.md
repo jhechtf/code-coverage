@@ -1,5 +1,11 @@
 # Code Coverage Generator
 
+**THIS PROJECT IS RETIRED**
+
+As of Deno 1.39.1 there is now a comparable table displayed by default. If you are on a version of Deno below 1.39.1, please consider upgrading.
+
+This project will no longer be getting any updates.
+
 How is this not a part of the CLI? Maybe it is, but I sure couldn't find it...
 
 ## Description
